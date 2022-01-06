@@ -1,0 +1,32 @@
+1 
+
+2 
+
+3 age_son = int(input('How old are you: '))
+
+4 age_father = int(input('How old is your father: '))
+
+5 counter = 0
+
+6 
+
+7 while age_son * 2 < age_father:
+
+8  age_son += 1
+
+9  age_father += 1
+
+10  counter += 1
+
+11 
+
+12 if counter == 0:
+
+13  print('The situation is no longer possible for your ages')
+
+14 else:
+
+15  print('Within', counter, 'years your father will have twice your age')
+
+16  print('Your father will be', age_father, 'and you will be', age_son)
+
