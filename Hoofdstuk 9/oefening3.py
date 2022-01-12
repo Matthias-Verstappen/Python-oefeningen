@@ -5,9 +5,15 @@ import xml.etree.ElementTree as ET
 xml = ET.parse('Files/jobs.xml')
 root = xml.getroot()
 
-print('Overview IT vacancies:')
-count = 1
-for jobs in root.iter('company'):
-    print(count, '.\tPosition:\t', end='')
-    for vacancy in jobs.iter('vacancies'):
-        print(vacancy[0].text)
+counter = 0
+for company in root.find('jobs'):
+    name_company = company[0].text
+    contact_person = company[1].find('email').text #or company[1][1]
+    vacancies = company.find('vacancies')
+    for vacancy in vacancies:
+        position = vacancy[0]
+        if position.get('group')=='IT':
+            counter += 1
+            print(str(counter)+'\t','position',position.text)
+            print('\tcompany:',name_company)
+            print('\tContact person:',contact_person)
